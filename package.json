@@ -2,6 +2,107 @@
   "name": "dashboard",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "EXTEND_ESLINT=true react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx src",
+    "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx src"
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": 10,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "modules": true
+      },
+      "project": "./tsconfig.json"
+    },
+    "env": {
+      "jest": true
+    },
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "extends": [
+      "react-app",
+      "airbnb-typescript"
+    ],
+    "rules": {
+      "no-debugger": 1,
+      "react/jsx-one-expression-per-line": 0,
+      "react-hooks/exhaustive-deps": 0,
+      "react/prop-types": 0,
+      "react/destructuring-assignment": 0,
+      "react/jsx-props-no-spreading": 0,
+      "jsx-a11y/click-events-have-key-events": 0,
+      "jsx-a11y/no-noninteractive-element-interactions": 0,
+      "react/jsx-closing-bracket-location": 0,
+      "@typescript-eslint/indent": 0,
+      "@typescript-eslint/no-unused-vars": 1,
+      "@typescript-eslint/semi": [
+        2,
+        "never"
+      ],
+      "semi": [
+        2,
+        "never"
+      ],
+      "object-curly-newline": 0,
+      "no-console": 0,
+      "import/prefer-default-export": 0,
+      "max-classes-pre-file": 0,
+      "max-classes-per-file": 0,
+      "import/no-cycle": 0,
+      "class-methods-use-this": 0,
+      "quotes": [
+        2,
+        "single"
+      ],
+      "max-len": [
+        2,
+        {
+          "code": 150,
+          "tabWidth": 2
+        }
+      ]
+    }
+  },
+  "prettier": {
+    "printWidth": 150,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "arrowParens": "always"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm test"
+    }
+  },
+  "lint-staged": {
+    "*.ts?(x)": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ],
+    "*.{js,css,md}": "prettier --write"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
@@ -15,25 +116,11 @@
     "react-scripts": "3.3.1",
     "typescript": "^3.7.5"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.18.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-typescript": "^6.3.1",
+    "eslint-plugin-import": "^2.20.0",
+    "prettier": "^1.19.1"
   }
 }
