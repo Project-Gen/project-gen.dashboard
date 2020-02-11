@@ -7,6 +7,7 @@ import RegisrationPage from './RegistrationPage'
 import LoginPage from './LoginPage'
 import ProjectsPage from './ProjectsPage'
 import HomePage from './HomePage'
+import CreateProjectPage from './CreateProjectPage'
 
 const engine = new Styletron()
 
@@ -26,8 +27,11 @@ const App = () => {
               <Route path="/login">
                 <LoginPage />
               </Route>
-              <Route path="/projects">
+              <Route exact path="/projects">
                 <ProjectsPage />
+              </Route>
+              <Route path="/projects/create">
+                <CreateProjectPage />
               </Route>
             </Switch>
           </Router>

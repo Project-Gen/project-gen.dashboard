@@ -9,7 +9,11 @@ export const login = async (data: any) => {
 }
 
 export const createProject = async (data: any) => {
-  return axios.post('http://localhost:3100/admin/projects', data)
+  return axios.post('http://localhost:3100/admin/projects', data, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    },
+  })
 }
 
 export const fetchProjects = async () => {
