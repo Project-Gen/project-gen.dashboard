@@ -1,3 +1,14 @@
+## TODO
+
+- e2e login
+- e2e register
+- e2e create project
+
+- projects list
+- projects update
+- projects item
+- projects delete
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

@@ -5,7 +5,6 @@ import { Input } from 'baseui/input'
 import React, { useState } from 'react'
 import { styled } from 'styletron-react'
 import { useHistory } from 'react-router-dom'
-import { Select } from 'baseui/select'
 import { register } from './api'
 
 const Centered = styled('div', {
@@ -23,10 +22,7 @@ const RegistrationPage = () => {
   const history = useHistory()
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const res = await register({
-      ...form,
-      role: form.role[0].id,
-    })
+    const res = await register(form)
     localStorage.setItem('token', res.data.data.token)
     history.push('/')
   }
@@ -50,17 +46,6 @@ const RegistrationPage = () => {
           >
             <Input name="password" onChange={handleInput} />
           </FormControl>
-          <Select
-            options={[
-              { label: 'user', id: 'user' },
-              { label: 'admin', id: 'admin' },
-            ]}
-            value={form.role}
-            placeholder="Select role"
-            onChange={(params) => {
-              handleInput({ currentTarget: { value: params.value, name: 'role' } })
-            }}
-          />
           <Button type="submit">Hello</Button>
         </form>
       </HeadingLevel>

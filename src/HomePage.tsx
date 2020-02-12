@@ -1,11 +1,12 @@
-import React, { useEffect } from 'react'
-import { fetchProjects } from './api'
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 const HomePage = () => {
-  useEffect(() => {
-    fetchProjects()
-  }, [])
-  return <div>Home</div>
+  return (
+    <div>
+      <Link to="/projects">Projects</Link>
+    </div>
+  )
 }
 
 export default HomePage

@@ -8,6 +8,8 @@ import LoginPage from './LoginPage'
 import ProjectsPage from './ProjectsPage'
 import HomePage from './HomePage'
 import CreateProjectPage from './CreateProjectPage'
+import UpdateProjectPage from './UpdateProjectPage'
+import ProjectCardPage from './ProjectCart'
 
 const engine = new Styletron()
 
@@ -32,6 +34,12 @@ const App = () => {
               </Route>
               <Route path="/projects/create">
                 <CreateProjectPage />
+              </Route>
+              <Route exact path="/projects/:id/update">
+                <UpdateProjectPage />
+              </Route>
+              <Route exact path="/projects/:id">
+                <ProjectCardPage />
               </Route>
             </Switch>
           </Router>
