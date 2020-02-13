@@ -1,7 +1,8 @@
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
-import { HomeRoute } from './home.route'
 import { LoginRoute, RegisterRoute } from '../auth'
+import { ProjectsRoutes } from '../projects'
+import { HomeRoute } from './home.route'
 
 export const Router = () => {
   return (
@@ -9,6 +10,7 @@ export const Router = () => {
       <HomeRoute />
       <LoginRoute />
       <RegisterRoute />
+      <ProjectsRoutes />
     </BrowserRouter>
   )
 }

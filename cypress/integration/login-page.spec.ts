@@ -21,7 +21,11 @@ describe('Login page', () => {
       .type('new')
     cy.get('button').click()
 
-    cy.wait('@login').then(() => {
+    cy.wait('@login').then((xhr) => {
+      expect(xhr.requestBody).eql({
+        email: 'new@email.com',
+        password: 'new',
+      })
       expect(localStorage.getItem('token')).to.eq('test-token')
     })
     cy.location('pathname').should('eq', '/')

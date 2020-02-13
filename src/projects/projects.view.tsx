@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { ListItem, ListItemLabel } from 'baseui/list'
-import { styled } from 'baseui'
 import { Link } from 'react-router-dom'
-import { fetchProjects } from './api'
+import { fetchProjects } from '../common/api'
 
-const ProjectsPage = () => {
+export const ProjectsView = () => {
   const [projects, setProjects] = useState<any[]>([])
   useEffect(() => {
     const fetch = async () => {
@@ -13,10 +12,9 @@ const ProjectsPage = () => {
     }
     fetch()
   }, [])
-  console.log(projects)
 
   return (
-    <div style={{ padding: 30 }}>
+    <section>
       <h2>Projects</h2>
       {projects.map((p) => {
         return (
@@ -27,8 +25,6 @@ const ProjectsPage = () => {
           </ListItem>
         )
       })}
-    </div>
+    </section>
   )
 }
-
-export default ProjectsPage
